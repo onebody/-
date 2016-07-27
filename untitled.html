@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script class="jquery library" src="http://runjs.cn/js/sandbox/jquery/jquery-1.7.2.min.js" type="text/javascript"></script>
+	<title>神州专车推荐手机号生成器</title>
+
+  </head>
+<body>
+
+  手机号前7位：<input type="text" id="prexMobile" value="1322105" /> </br>
+  神州专车推荐Key：<input type="text" id="szKey" value="dWF5b2dvdE8xN1VKNk0vbmk2N2dGQT09" style="width:500px"/> </br>
+  生成的手机号列表：<textarea id="mobileListSrc" row="150" col="500" style="width:500px;height:200px;overflow:scroll;"></textarea>
+  </br>
+
+    生成的手机号加密串列表： <textarea id="mobileList" row="150" col="500" style="width:500px;height:200px;overflow:scroll;"></textarea>
+
+
+    <input type="button" id="get" value="start" title="start" onclick="javascript:makeM()"/>
+  
+
+
+ <script type="text/javascript" >
+
+ var index =  1;
+ var max = 20;
+
+function RndNum(n){
+  var rnd="";
+  for(var i=0;i<n;i++)
+     rnd+=Math.floor(Math.random()*10);
+  return rnd;
+}
+
+function getM(prex,szKey){
+
+  var mobile = prex+RndNum(4);
+  
+  var key =szKey;
+  var channel = "newMember";
+  var  s = $("#mobileListSrc").val();
+  $("#mobileListSrc").val(s+"\n"+mobile);
+      
+  var key = channel+"#"+mobile+"#"+key+"#"+new Date().getTime();
+  key = encodeURIComponent(key);
+
+  return key;
+
+}
+
+
+function makeM(){
+
+  document.getElementById("mobileList").value = "";
+  document.getElementById("mobileListSrc").value = "";
+ 
+  getMobile();
+
+}
+
+function getMobile(){
+
+  
+
+    var prex = $("#prexMobile").val();
+
+    if (prex.length!=7) {
+      alert("手机号前7位必填");
+      $("#prexMobile").select();
+      return;
+    } 
+
+    var szKey = $("#szKey").val();
+
+     if (szKey.length<=0) {
+      alert("神州专车推荐Key必填");
+      $("#szKey").select();
+      return;
+    } 
+
+
+    //随机生成手机号4位，拼成完整手机号
+    var key  = getM(prex,szKey);
+
+    var  s = $("#mobileList").val();
+    $("#mobileList").val(s+"\n"+key);
+   
+   if (index<=max){
+
+      index=index+1;
+     setTimeout("getMobile()", 5000 );
+
+   } else{
+      alert("号码生成完毕");
+
+   }
+
+
+}
+
+
+
+
+ function getRedpacket(){
+ // var key = ucar.uitls.getUrlParam("key");
+       var key ="dWF5b2dvdE8xN1VKNk0vbmk2N2dGQT09";
+        var channel = "newMember";//$("#channel").val();
+        var mobile = '13221053862';//$.trim($("#mobile").val())'';
+      
+        var key = channel+"#"+mobile+"#"+key+"#"+new Date().getTime();
+        key = encodeURIComponent(key);
+        
+        $("#mobileList").val(key);
+        alert(key);
+
+        $.ajax({url:'http://m.10101111.com/shareRedpacket/getRedpacket.do',
+            type:"post",
+            cache: false,
+            dataType: "json",
+            data : {key: key},
+
+        headers: {
+            "Access-Control-Allow-Origin":"http://m.10101111.com",
+            "Access-Control-Allow-Headers":"X-Requested-With",
+            "Content-Type":"application/x-www-form-urlencoded",
+            "Referer":"http://m.10101111.com/html5/redpackets/newmember/open.html?key=dWF5b2dvdE8xN1VKNk0vbmk2N2dGQT09&v=1431507217476",
+"User-Agent":"Mozilla/5.0 (Linux; U; Android 4.4.2; zh-cn; H60-L01 Build/HDH60-L01) AppleWebKit/533.1 (KHTML, like Gecko)Version/4.0 MQQBrowser/5.4 TBS/025411 Mobile Safari/533.1 MicroMessenger/6.1.0.73_r1097298.543 NetType/WIFI"
+
+        },
+            success:function(data){
+                if(data && data.status === 0 && data.result){
+                    var result = data.result;
+                    //ucar.uitls.setSession("redpackets_mobile",mobile);
+                    //ucar.uitls.setSession("redpackets_amount",result.amount);
+                    if(channel === 'shareOrder'){
+                       alert("1");
+                    }else if(channel === 'newMember'){
+                        if(result.status === 1){
+                            alert("/html5/redpackets/newmember/success.html?v="+new Date().getTime());
+                        }else if(result.status === 2){
+                            alert("/html5/redpackets/newmember/success.html?v="+new Date().getTime());
+                        }else if(result.status === 3 && result.isNewMember === 0){
+                            //ucar.uitls.setSession("newmemberRedpacket_oldmember",1);
+                            alert("/html5/redpackets/newmember/oldmember.html?v="+new Date().getTime());
+                        }else if(result.status === 4){
+                            alert("/html5/redpackets/newmember/over.html?v="+new Date().getTime());
+                        }else if(result.status === 5){
+                            alert("活动未开始");
+                        }else if(result.status === 6){
+                            alert("活动已结束");
+                        } else {
+                            alert("/html5/redpackets/newmember/over.html?v="+new Date().getTime());
+                        }
+                    }
+                }else{
+                    alert("红包领取失败");
+                    //utils.show("页面超时，稍后将刷新页面");
+                    //setTimeout(function(){
+                    //    if(location.href.indexOf('?') > 0){
+                    //        location.href = location.href + "&v=" + new Date().getTime();
+                    //    }else{
+                    //        location.href = location.href + "?v=" + new Date().getTime();
+                    //    }
+                    //},500);
+                }
+            }
+          });
+
+
+ }
+
+            </script>
+            </body>
+</html>

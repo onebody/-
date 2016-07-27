@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE items [
+<!ELEMENT items (item*)>
+<!ATTLIST items burpVersion CDATA "">
+<!ATTLIST items exportTime CDATA "">
+<!ELEMENT item (time, url, host, port, protocol, method, path, extension, request, status, responselength, mimetype, response, comment)>
+<!ELEMENT time (#PCDATA)>
+<!ELEMENT url (#PCDATA)>
+<!ELEMENT host (#PCDATA)>
+<!ATTLIST host ip CDATA "">
+<!ELEMENT port (#PCDATA)>
+<!ELEMENT protocol (#PCDATA)>
+<!ELEMENT method (#PCDATA)>
+<!ELEMENT path (#PCDATA)>
+<!ELEMENT extension (#PCDATA)>
+<!ELEMENT request (#PCDATA)>
+<!ATTLIST request base64 (true|false) "false">
+<!ELEMENT status (#PCDATA)>
+<!ELEMENT responselength (#PCDATA)>
+<!ELEMENT mimetype (#PCDATA)>
+<!ELEMENT response (#PCDATA)>
+<!ATTLIST response base64 (true|false) "false">
+<!ELEMENT comment (#PCDATA)>
+]>
+<items burpVersion="1.6.09" exportTime="Fri May 15 12:27:35 CST 2015">
+  <item>
+    <time>Fri May 15 10:03:34 CST 2015</time>
+    <url><![CDATA[http://m.10101111.com/shareRedpacket/getRedpacket.do]]></url>
+    <host ip="58.241.35.123">m.10101111.com</host>
+    <port>80</port>
+    <protocol>http</protocol>
+    <method>POST</method>
+    <path><![CDATA[/shareRedpacket/getRedpacket.do]]></path>
+    <extension>do</extension>
+    <request base64="true"><![CDATA[UE9TVCAvc2hhcmVSZWRwYWNrZXQvZ2V0UmVkcGFja2V0LmRvIEhUVFAvMS4xDQpBY2NlcHQtTGFuZ3VhZ2U6IHpoLUNODQpYLVJlcXVlc3RlZC1XaXRoOiBYTUxIdHRwUmVxdWVzdA0KQWNjZXB0LUNoYXJzZXQ6IHV0Zi04LCBpc28tODg1OS0xLCB1dGYtMTYsICo7cT0wLjcNClJlZmVyZXI6IGh0dHA6Ly9tLjEwMTAxMTExLmNvbS9odG1sNS9yZWRwYWNrZXRzL25ld21lbWJlci9vcGVuLmh0bWw/a2V5PWRXRjViMmR2ZEU4eE4xVktOazB2Ym1rMk4yZEdRVDA5JnY9MTQzMTUwNzIxNzQ3Ng0KVXNlci1BZ2VudDogTW96aWxsYS81LjAgKExpbnV4OyBVOyBBbmRyb2lkIDQuNC4yOyB6aC1jbjsgSDYwLUwwMSBCdWlsZC9IREg2MC1MMDEpIEFwcGxlV2ViS2l0LzUzMy4xIChLSFRNTCwgbGlrZSBHZWNrbylWZXJzaW9uLzQuMCBNUVFCcm93c2VyLzUuNCBUQlMvMDI1NDExIE1vYmlsZSBTYWZhcmkvNTMzLjEgTWljcm9NZXNzZW5nZXIvNi4xLjAuNzNfcjEwOTcyOTguNTQzIE5ldFR5cGUvV0lGSQ0KT3JpZ2luOiBodHRwOi8vbS4xMDEwMTExMS5jb20NCkFjY2VwdDogYXBwbGljYXRpb24vanNvbiwgdGV4dC9qYXZhc2NyaXB0LCAqLyo7IHE9MC4wMQ0KQ29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi94LXd3dy1mb3JtLXVybGVuY29kZWQNCkFjY2VwdC1FbmNvZGluZzogZ3ppcA0KUHJveHktQ29ubmVjdGlvbjoga2VlcC1hbGl2ZQ0KSG9zdDogbS4xMDEwMTExMS5jb20NCkNvb2tpZTogV1RfRlBDPWlkPTI4YmUyZTg1YmQ5ZGE3ZTBjY2QxNDMxMzQ5NDY4MDc2Omx2PTE0MzE2NTU0MDk2NjQ6c3M9MTQzMTY1NDc1NTg2NDsgdWNhci1kbXotc2lkPWI4OGEzZDUzLTRjNDgtNGRiOC1hNTE1LTc5YWI4NDBiYWI2Mi4xMTQNCkNvbnRlbnQtTGVuZ3RoOiA4NA0KDQprZXk9bmV3TWVtYmVyJTI1MjMxMzIyMTA1Mzg1MSUyNTIzZFdGNWIyZHZkRTh4TjFWS05rMHZibWsyTjJkR1FUMDklMjUyMzE0MzE2NTU0MDk2ODY=]]></request>
+    <status>200</status>
+    <responselength>311</responselength>
+    <mimetype>JSON</mimetype>
+    <response base64="true"><![CDATA[SFRUUC8xLjEgMjAwIE9LDQpTZXJ2ZXI6IERuaW9uT1MvMS4yLjEuMw0KRGF0ZTogRnJpLCAxNSBNYXkgMjAxNSAwMjowMzozOSBHTVQNCkNvbnRlbnQtVHlwZTogYXBwbGljYXRpb24vanNvbjtjaGFyc2V0PVVURi04DQpDb250ZW50LUxlbmd0aDogNzcNCkFnZTogMg0KVmlhOiBHRFNULTI0OC02NSAoRExDLTMuMCksIGpzXzM1XzEwNCAoRExDLTMuMCkNClByb3h5LUNvbm5lY3Rpb246IGtlZXAtYWxpdmUNCg0KeyJtc2ciOiLmiJDlip8iLCJyZXN1bHQiOnsiYW1vdW50IjoxMCwiaXNOZXdNZW1iZXIiOjEsInN0YXR1cyI6MX0sInN0YXR1cyI6MH0=]]></response>
+    <comment></comment>
+  </item>
+</items>
